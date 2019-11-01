@@ -85,6 +85,46 @@ const routes = [
                     return import(/* webpackChunkName: "about" */ '../views/Patient_examination.vue')
                 }
             },
+            {
+                path: '/ows',
+                name: 'ows',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: function () {
+                    return import(/* webpackChunkName: "about" */ '../views/finance/Ows.vue')
+                }
+            },
+            {
+                path: '/bdws',
+                name: 'bdws',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: function () {
+                    return import(/* webpackChunkName: "about" */ '../views/finance/Bdws.vue')
+                }
+            },
+            {
+                path: '/edws',
+                name: 'edws',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: function () {
+                    return import(/* webpackChunkName: "about" */ '../views/finance/Edws.vue')
+                }
+            },
+            {
+                path: '/cam',
+                name: 'cam',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: function () {
+                    return import(/* webpackChunkName: "about" */ '../views/finance/Cam.vue')
+                }
+            },
         ]
 
     },

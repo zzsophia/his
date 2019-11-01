@@ -97,10 +97,10 @@
                                     <span>财务管理</span>
                                 </template>
                                 <el-menu-item-group>
-                                    <el-menu-item index="5-1">门诊医生工作量统计*</el-menu-item>
-                                    <el-menu-item index="5-2">开单科室工作量统计*</el-menu-item>
-                                    <el-menu-item index="5-3">执行科室工作量统计**</el-menu-item>
-                                    <el-menu-item index="5-4">费用科目管理</el-menu-item>
+                                    <el-menu-item index="5-1" @click="dolink_finance_ows">门诊医生工作量统计*</el-menu-item>
+                                    <el-menu-item index="5-2" @click="dolink_finance_bdws">开单科室工作量统计*</el-menu-item>
+                                    <el-menu-item index="5-3" @click="dolink_finance_edws">执行科室工作量统计**</el-menu-item>
+                                    <el-menu-item index="5-4" @click="dolink_finance_cam">费用科目管理</el-menu-item>
                                 </el-menu-item-group>
                             </el-submenu>
                         </el-menu>
@@ -173,7 +173,19 @@
             },
             dolink9: function () {
                 this.$router.push('/patient_examination')
-            }
+            },
+            dolink_finance_ows: function () {
+                this.$router.push('/ows')
+            },
+            dolink_finance_bdws: function () {
+                this.$router.push('/bdws')
+            },
+            dolink_finance_edws: function () {
+                this.$router.push('/edws')
+            },
+            dolink_finance_cam: function () {
+                this.$router.push('/cam')
+            },
         }
 
     }
