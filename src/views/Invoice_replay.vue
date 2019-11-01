@@ -153,13 +153,16 @@
     }
 
     .guahao {
-        width: 100%;
+        width: 98%;
         margin-left: 30px;
 
     }
     #tuihao{
         background-color: #409EFF;
         border: #409EFF;
+    }
+    p{
+        display: flex;
     }
 
 
