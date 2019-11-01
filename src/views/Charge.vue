@@ -93,9 +93,10 @@
                     <el-table-column
                             prop="operation"
                             label="操作"
-                    >
+                    ><el-button hidden-xs-only="hidden-xs-only"></el-button>
                     </el-table-column>
                 </el-table>
+
             </div>
         </div>
 
@@ -103,6 +104,7 @@
 </template>
 
 <script>
+    import 'element-ui/lib/theme-chalk/display.css';
     export default {
         name: "Charge",
         data() {
@@ -140,9 +142,12 @@
     }
 
     .guahao {
-        width: 100%;
+        width: 98%;
         margin-left: 30px;
 
+    }
+    p{
+        display: flex;
     }
 
 
