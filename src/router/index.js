@@ -29,7 +29,76 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../components/CheckDay.vue')
     }
-  }
+  },
+    {
+        path: '/dispensing',
+        name: 'dispensing',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: function () {
+            return import(/* webpackChunkName: "about" */ '../components/Dispensing.vue')
+        }
+    },
+    {
+        path: '/returnmedicine',
+        name: 'returnmedicine',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: function () {
+            return import(/* webpackChunkName: "about" */ '../components/ReturnMedicine.vue')
+        }
+    },
+    {
+        path: '/drugadministration',
+        name: 'drugadministration',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: function () {
+            return import(/* webpackChunkName: "about" */ '../components/DrugAdministration.vue')
+        }
+    },
+    {
+        path: '/constantcategorymanagement',
+        name: 'constantcategorymanagement',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: function () {
+            return import(/* webpackChunkName: "about" */ '../components/Constantcategorymanagement.vue')
+        }
+    },
+    {
+        path: '/officeManagement',
+        name: 'officeManagement',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: function () {
+            return import(/* webpackChunkName: "about" */ '../components/OfficeManagement.vue')
+        }
+    },
+    {
+        path: '/userManagement',
+        name: 'userManagement',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: function () {
+            return import(/* webpackChunkName: "about" */ '../components/UserManagement.vue')
+        }
+    },{
+        path: '/registrationlevelmanagement',
+        name: 'registrationlevelmanagement',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: function () {
+            return import(/* webpackChunkName: "about" */ '../components/Registrationlevelmanagement.vue')
+        }
+    }
 ]
 
 const router = new VueRouter({
