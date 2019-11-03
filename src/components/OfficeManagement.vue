@@ -1,311 +1,117 @@
 <template>
     <div>
-        <div class="el-col el-col-6" data-v-49055fb4="">
-            <div class="grid-content bg-purple" data-v-49055fb4="">
-                <div class="el-input el-input--mini" data-v-49055fb4="">
-                    <input class="el-input__inner" type="text"
-                           placeholder="请输入常数类别编码或名称" autocomplete="off"><!---->
+        <div>
+            <div class="el-col el-col-6" data-v-49055fb4="">
+                <div class="grid-content bg-purple" data-v-49055fb4="">
+                    <div class="el-input el-input--mini" data-v-49055fb4="">
+                        <el-input  type="text" v-model="input" placeholder="请输入科室编码或名称" autocomplete="off"></el-input>
+                    </div>
+                </div>
+            </div>
+            <div class="el-col el-col-6" data-v-49055fb4="">
+                <div class="grid-content bg-purple" data-v-49055fb4="">
+                    <el-button class="el-button el-button--primary el-button--mini"
+                               style="margin-left: 10px;" data-v-49055fb4="" type="primary" icon="el-icon-view">查询科室</el-button>
+                </div>
+            </div>
+            <div class="el-col el-col-6" data-v-49055fb4="">
+                <div class="grid-content bg-purple" data-v-49055fb4="">
+                    <el-button class="el-button el-button--primary el-button--mini"
+                               style="margin-left: 10px;" type="button" data-v-49055fb4="" @click="dialogFormVisible = true">
+                        <i class="el-icon-edit"></i><span>新增科室</span></el-button>
+
+                    <el-dialog title="新增科室" :visible.sync="dialogFormVisible">
+                        <el-form :model="form">
+                            <el-form-item>
+                                科室编号：<el-input v-model="form.code" autocomplete="off" placeholder="科室编码" style="width: 150px"></el-input>
+                                科室名称：<el-input v-model="form.name" autocomplete="off" placeholder="科室名称" style="width: 150px"></el-input>
+                            </el-form-item>
+                            <el-form-item>
+                                科室分类：<div class="el-select el-select--mini" style="width: 110px;">
+                                <el-select style="width:100px;" v-model="value" readonly="readonly" placeholder="科室分类" autocomplete="off">
+                                    <el-option
+                                            v-for="item in options1"
+                                            :key="item.value"
+                                            :label="item.label"
+                                            :value="item.value">
+                                    </el-option>
+                                </el-select>
+                                </div>
+                                科室类别：<div class="el-select el-select--mini" style="width: 110px;">
+                                <el-select style="width:100px;" v-model="value" readonly="readonly" placeholder="科室类别" autocomplete="off">
+                                    <el-option
+                                            v-for="item in options2"
+                                            :key="item.value"
+                                            :label="item.label"
+                                            :value="item.value">
+                                    </el-option>
+                                </el-select>
+                            </div>
+                            </el-form-item>
+                        </el-form>
+                        <div slot="footer" class="dialog-footer">
+                            <el-button @click="dialogFormVisible = false">取 消</el-button>
+                            <el-button type="primary" @click="dialogFormVisible = false">保存</el-button>
+                        </div>
+                    </el-dialog>
                 </div>
             </div>
         </div>
-        <div class="el-col el-col-6" data-v-49055fb4="">
-            <div class="grid-content bg-purple" data-v-49055fb4="">
-                <button class="el-button el-button--primary el-button--mini"
-                        style="margin-left: 10px;" type="button" data-v-49055fb4="">
-                    <i class="el-icon-view"></i><span>查询常数类别</span></button>
-            </div>
-        </div>
-        <div class="el-col el-col-6" data-v-49055fb4="">
-            <div class="grid-content bg-purple" data-v-49055fb4="">
-                <button class="el-button el-button--primary el-button--mini"
-                        style="margin-left: 10px;" type="button" data-v-49055fb4="">
-                    <i class="el-icon-edit"></i><span>新增常数类别</span></button>
-            </div>
-        </div>
-        <div class="el-col el-col-6" data-v-49055fb4="">
-            <div class="grid-content bg-purple" data-v-49055fb4="">
-                <button class="el-button el-button--primary el-button--mini"
-                        style="margin-left: 10px;" type="button" data-v-49055fb4="">
-                    <i class="el-icon-edit"></i><span>常数项管理</span></button>
-            </div>
-        </div>
-        <div class="el-table el-table--fit el-table--striped el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition el-table--mini"
-             style="width: 100%;" data-v-49055fb4="">
-            <div class="hidden-columns">
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-                <div data-v-49055fb4=""></div>
-            </div>
-            <div class="el-table__header-wrapper">
-                <table class="el-table__header" style="width: 815px;" border="0"
-                       cellspacing="0" cellpadding="0">
-                    <colgroup>
-                        <col width="55" name="el-table_3_column_18">
-                        <col width="140" name="el-table_3_column_19">
-                        <col width="80" name="el-table_3_column_20">
-                        <col width="140" name="el-table_3_column_21">
-                        <col width="80" name="el-table_3_column_22">
-                        <col width="80" name="el-table_3_column_23">
-                        <col width="80" name="el-table_3_column_24">
-                        <col width="80" name="el-table_3_column_25">
-                        <col width="80" name="el-table_3_column_26">
-                        <col width="0" name="gutter">
-                    </colgroup>
-                    <thead class="has-gutter">
-                    <tr>
-                        <th class="el-table_3_column_18  is-left el-table-column--selection  is-leaf"
-                            rowspan="1" colspan="1">
-                            <div class="cell"><label class="el-checkbox"
-                                                     role="checkbox"><span
-                                    class="el-checkbox__input"
-                                    aria-checked="mixed"><span
-                                    class="el-checkbox__inner"></span><input
-                                    class="el-checkbox__original" aria-hidden="true"
-                                    type="checkbox" value=""></span><!----></label>
-                            </div>
-                        </th>
-                        <th class="el-table_3_column_19  is-left   is-leaf" rowspan="1"
-                            colspan="1">
-                            <div class="cell">科室编号</div>
-                        </th>
-                        <th class="el-table_3_column_20  is-left   is-leaf" rowspan="1"
-                            colspan="1">
-                            <div class="cell">科室名称</div>
-                        </th>
-                        <th class="el-table_3_column_21  is-left   is-leaf" rowspan="1"
-                            colspan="1">
-                            <div class="cell">科室分类</div>
-                        </th>
-                        <th class="el-table_3_column_22  is-left   is-leaf" rowspan="1"
-                            colspan="1">
-                            <div class="cell">科室类型</div>
-                        </th>
-                        <th class="el-table_3_column_26  is-center   is-leaf"
-                            rowspan="1" colspan="1">
-                            <div class="cell">操作</div>
-                        </th>
-                        <th class="gutter" style="width: 0px; display: none;"></th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="el-table__body-wrapper is-scrolling-left">
-                <table class="el-table__body" style="width: 815px;" border="0"
-                       cellspacing="0" cellpadding="0">
-                    <colgroup>
-                        <col width="55" name="el-table_3_column_18">
-                        <col width="140" name="el-table_3_column_19">
-                        <col width="80" name="el-table_3_column_20">
-                        <col width="140" name="el-table_3_column_21">
-                        <col width="80" name="el-table_3_column_22">
-                        <col width="80" name="el-table_3_column_23">
-                        <col width="80" name="el-table_3_column_24">
-                        <col width="80" name="el-table_3_column_25">
-                        <col width="80" name="el-table_3_column_26">
-                    </colgroup>
-                    <tbody><tr class="el-table__row">
-                        <td class="el-table_3_column_18 is-left el-table-column--selection"
-                            rowspan="1" colspan="1">
-                            <div class="cell"><label class="el-checkbox"
-                                                     role="checkbox"><span
-                                    class="el-checkbox__input"
-                                    aria-checked="mixed"><span
-                                    class="el-checkbox__inner"></span><input
-                                    class="el-checkbox__original" aria-hidden="true"
-                                    type="checkbox" value=""></span></label>
-                            </div>
-                        </td>
-                        <td class="el-table_3_column_19 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">XEEBHK</div>
-                        </td>
-                        <td class="el-table_3_column_20 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">小儿耳鼻喉科</div>
-                        </td>
-                        <td class="el-table_3_column_21 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">儿科</div>
-                        </td>
-                        <td class="el-table_3_column_22 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">临床</div>
-                        </td>
-                        <td class="el-table_3_column_26 is-center " rowspan="1"
-                            colspan="1">
-                            <div class="cell">
-                                <button class="el-button el-button--primary el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                    <span>编辑
-          </span></button>
-                                <button class="el-button el-button--danger el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                    <span>删除
-          </span></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="el-table__row el-table__row--striped">
-                        <td class="el-table_3_column_18 is-left el-table-column--selection"
-                            rowspan="1" colspan="1">
-                            <div class="cell"><label class="el-checkbox"
-                                                     role="checkbox"><span
-                                    class="el-checkbox__input"
-                                    aria-checked="mixed"><span
-                                    class="el-checkbox__inner"></span><input
-                                    class="el-checkbox__original" aria-hidden="true"
-                                    type="checkbox" value=""></span></label>
-                            </div>
-                        </td>
-                        <td class="el-table_3_column_19 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">XEXNK</div>
-                        </td>
-                        <td class="el-table_3_column_20 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">小儿心内科</div>
-                        </td>
-                        <td class="el-table_3_column_21 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">儿科</div>
-                        </td>
-                        <td class="el-table_3_column_22 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">临床</div>
-                        </td>
-                        <td class="el-table_3_column_26 is-center " rowspan="1"
-                            colspan="1">
-                            <div class="cell">
-                                <button class="el-button el-button--primary el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                    <span>编辑
-          </span></button>
-                                <button class="el-button el-button--danger el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                    <span>删除
-          </span></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="el-table__row">
-                        <td class="el-table_3_column_18 is-left el-table-column--selection"
-                            rowspan="1" colspan="1">
-                            <div class="cell"><label class="el-checkbox"
-                                                     role="checkbox"><span
-                                    class="el-checkbox__input"
-                                    aria-checked="mixed"><span
-                                    class="el-checkbox__inner"></span><input
-                                    class="el-checkbox__original" aria-hidden="true"
-                                    type="checkbox" value=""></span></label>
-                            </div>
-                        </td>
-                        <td class="el-table_3_column_19 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">XEKFK</div>
-                        </td>
-                        <td class="el-table_3_column_20 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">小儿康复科</div>
-                        </td>
-                        <td class="el-table_3_column_21 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">儿科</div>
-                        </td>
-                        <td class="el-table_3_column_22 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">临床</div>
-                        </td>
-                        <td class="el-table_3_column_26 is-center " rowspan="1"
-                            colspan="1">
-                            <div class="cell">
-                                <button class="el-button el-button--primary el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                    <span>编辑
-          </span></button>
-                                <button class="el-button el-button--danger el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                    <span>删除
-          </span></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="el-table__row el-table__row--striped">
-                        <td class="el-table_3_column_18 is-left el-table-column--selection"
-                            rowspan="1" colspan="1">
-                            <div class="cell"><label class="el-checkbox"
-                                                     role="checkbox"><span
-                                    class="el-checkbox__input"
-                                    aria-checked="mixed"><span
-                                    class="el-checkbox__inner"></span><input
-                                    class="el-checkbox__original" aria-hidden="true"
-                                    type="checkbox" value=""></span></label>
-                            </div>
-                        </td>
-                        <td class="el-table_3_column_19 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">XENFMK</div>
-                        </td>
-                        <td class="el-table_3_column_20 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">小儿内分泌科</div>
-                        </td>
-                        <td class="el-table_3_column_21 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">儿科</div>
-                        </td>
-                        <td class="el-table_3_column_22 is-left " rowspan="1"
-                            colspan="1">
-                            <div class="cell">临床</div>
-                        </td>
-                        <td class="el-table_3_column_26 is-center " rowspan="1"
-                            colspan="1">
-                            <div class="cell">
-                                <button class="el-button el-button--primary el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                   <span>编辑
-          </span></button>
-                                <button class="el-button el-button--danger el-button--mini"
-                                        type="button" data-v-49055fb4=""><!---->
-                                    <span>删除
-          </span></button>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="el-table__column-resize-proxy" style="display: none;"></div>
+        <div>
+            <el-table
+                    ref="multipleTable"
+                    :data="tableData"
+                    tooltip-effect="dark"
+                    style="width: 100%"
+                    @selection-change="handleSelectionChange">
+                <el-table-column
+                        type="selection"
+                        width="55">
+                </el-table-column>
+                <el-table-column
+                        label="日期"
+                        width="120">
+                    <template slot-scope="scope">{{ scope.row.date }}</template>
+                </el-table-column>
+                <el-table-column
+                        prop="name"
+                        label="姓名"
+                        width="120">
+                </el-table-column>
+                <el-table-column
+                        prop="address"
+                        label="地址"
+                        show-overflow-tooltip>
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button
+                                size="mini"
+                                @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                        <el-button
+                                size="mini"
+                                type="danger"
+                                @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
         </div>
         <div class="el-row" data-v-49055fb4="">
             <div align="left" class="el-col el-col-8" data-v-49055fb4="">
-                <button disabled="disabled"
-                        class="el-button el-button--danger el-button--mini is-disabled"
-                        style="width: 100px; margin-top: 10px;" type="button"
-                        data-v-49055fb4=""><span>批量删除
-    </span></button>
+                <el-button disabled="disabled"
+                           class="el-button el-button--danger el-button--mini is-disabled"
+                           style="width: 100px; margin-top: 10px;" type="button"
+                           data-v-49055fb4="">
+                    <span @click="toggledelete()">批量删除</span>
+                </el-button>
             </div>
             <div align="right" class="el-col el-col-16" data-v-49055fb4="">
                 <div class="el-pagination is-background" data-v-49055fb4="">
-                    <button disabled="disabled" class="btn-prev" type="button"><i
-                            class="el-icon el-icon-arrow-left"></i></button>
-                    <ul class="el-pager">
-                        <li class="number active">1</li><!---->
-                        <li class="number">2</li>
-                        <li class="number">3</li>
-                        <li class="number">4</li>
-                        <li class="number">5</li>
-                        <li class="number">6</li>
-                        <li class="el-icon more btn-quicknext el-icon-more"></li>
-                        <li class="number">10</li>
-                    </ul>
-                    <button class="btn-next" type="button"><i
-                            class="el-icon el-icon-arrow-right"></i></button>
+                    <el-pagination
+                            background
+                            layout="prev, pager, next"
+                            :total="100">
+                    </el-pagination>
                 </div>
             </div>
         </div>
@@ -314,7 +120,108 @@
 
 <script>
     export default {
-        name: "OfficeManagement"
+        name: "OfficeManagement",
+        data() {
+            return {
+                dialogFormVisible: false,
+                form: {
+                    code:'',
+                    name: '',
+                    mnemoniccode:'',
+                    specification:'',
+                    unit:'',
+                    unitprice:'',
+                    form:'',
+                    region: '',
+                    date1: '',
+                    date2: '',
+                    delivery: false,
+                    type: [],
+                    resource: '',
+                    desc: '',
+                },
+                options1: [{
+                    value: '选项1',
+                    label: 'f'
+                }, {
+                    value: '选项2',
+                    label: 'ff'
+                }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                }, {
+                    value: '选项4',
+                    label: '龙须面'
+                }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }],
+                options2: [{
+                    value: '选项1',
+                    label: 'f'
+                }, {
+                    value: '选项2',
+                    label: 'ff'
+                }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                }, {
+                    value: '选项4',
+                    label: '龙须面'
+                }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }],
+                tableData: [{
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-08',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-06',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-07',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }],
+                multipleSelection: []
+            };
+        },
+        methods: {
+            handleEdit(index, row) {
+                console.log(index, row);
+            },
+            handleDelete(index, row) {
+                console.log(index, row);
+            },
+            toggledelete(rows) {
+                if (rows) {
+                    rows.forEach(row => {
+                        this.$refs.multipleTable.toggleRowSelection(row);
+                    });
+                } else {
+                    this.$refs.multipleTable.clearSelection();
+                }
+            }
+        }
+
     }
 </script>
 

@@ -5,9 +5,8 @@
                 <div class="el-col el-col-8"><span style="color: red;">*</span>
                     <span style='font-family: "Microsoft YaHei"; font-size: 13px;'>病历号:</span>
                     <div class="el-input el-input--mini" style="width: 200px;">
-                        <input class="el-input__inner" type="text"
-                                      placeholder="输入病历号" autocomplete="off">
-                        </div>
+                        <el-input  type="text" v-model="input" placeholder="请输入内容" autocomplete="off"></el-input>
+                    </div>
                 </div>
                 <div class="el-col el-col-8">
                     <div class="el-form-item el-form-item--mini"><label
@@ -22,9 +21,7 @@
                 <div class="el-col el-col-8">
                     <div class="el-form-item el-form-item--mini">
                         <div class="el-form-item__content">
-                            <button class="el-button el-button--primary el-button--mini"
-                                    type="button"><span>查询</span>
-                            </button></div>
+                            <el-button type="primary">查询</el-button></div>
                     </div>
                 </div>
             </div>
@@ -132,7 +129,12 @@
 
 <script>
     export default {
-        name: "Dispensing"
+        name: "Dispensing",
+        data() {
+            return {
+                input: ''
+            }
+        }
     }
 </script>
 
