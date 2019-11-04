@@ -60,7 +60,7 @@
                                     <span>医技处置*</span>
                                 </template>
                                 <el-menu-item-group>
-                                    <el-menu-item index="3-1" @click="dolink9">患者检验*</el-menu-item>
+                                    <el-menu-item index="3-1" @click="">患者检验*</el-menu-item>
                                     <el-menu-item index="3-2">患者检查*</el-menu-item>
                                     <el-menu-item index="3-3">患者处置*</el-menu-item>
                                     <el-menu-item index="3-4">医技管理*</el-menu-item>
@@ -79,9 +79,9 @@
                                     <span>药房管理</span>
                                 </template>
                                 <el-menu-item-group>
-                                    <el-menu-item index="4-1">药房发药</el-menu-item>
-                                    <el-menu-item index="4-2">药房退药</el-menu-item>
-                                    <el-menu-item index="4-3">药品管理</el-menu-item>
+                                    <el-menu-item index="4-1" @click="dolink_dispensing">药房发药</el-menu-item>
+                                    <el-menu-item index="4-2" @click="dolink_returnmedicine">药房退药</el-menu-item>
+                                    <el-menu-item index="4-3" @click="dolink_drugadministration">药品管理</el-menu-item>
                                 </el-menu-item-group>
                             </el-submenu>
                         </el-menu>
@@ -97,10 +97,10 @@
                                     <span>财务管理</span>
                                 </template>
                                 <el-menu-item-group>
-                                    <el-menu-item index="5-1">门诊医生工作量统计*</el-menu-item>
-                                    <el-menu-item index="5-2">开单科室工作量统计*</el-menu-item>
-                                    <el-menu-item index="5-3">执行科室工作量统计**</el-menu-item>
-                                    <el-menu-item index="5-4">费用科目管理</el-menu-item>
+                                    <el-menu-item index="5-1" @click="dolink_finance_ows">门诊医生工作量统计*</el-menu-item>
+                                    <el-menu-item index="5-2" @click="dolink_finance_bdws">开单科室工作量统计*</el-menu-item>
+                                    <el-menu-item index="5-3" @click="dolink_finance_edws">执行科室工作量统计**</el-menu-item>
+                                    <el-menu-item index="5-4" @click="dolink_finance_cam">费用科目管理</el-menu-item>
                                 </el-menu-item-group>
                             </el-submenu>
                         </el-menu>
@@ -116,14 +116,14 @@
                                     <span>系统信息</span>
                                 </template>
                                 <el-menu-item-group>
-                                    <el-menu-item index="6-1">常数类别管理</el-menu-item>
-                                    <el-menu-item index="6-2">科室管理</el-menu-item>
-                                    <el-menu-item index="6-3">用户管理</el-menu-item>
-                                    <el-menu-item index="6-4">挂号级别管理</el-menu-item>
-                                    <el-menu-item index="6-5">结算类别管理</el-menu-item>
-                                    <el-menu-item index="6-6">诊断目录管理</el-menu-item>
-                                    <el-menu-item index="6-7">非药品收费项目管理</el-menu-item>
-                                    <el-menu-item index="6-8">医生排班管理</el-menu-item>
+                                    <el-menu-item index="6-1" @click="dolink_constantcategorymanagement">常数类别管理</el-menu-item>
+                                    <el-menu-item index="6-2" @click="dolink_officemanagement">科室管理</el-menu-item>
+                                    <el-menu-item index="6-3" @click="dolink_usermanagement">用户管理</el-menu-item>
+                                    <el-menu-item index="6-4" @click="dolink_registrationlevelmanagement">挂号级别管理</el-menu-item>
+                                    <el-menu-item index="6-5" @click="dolink_settlementcategorymanagement">结算类别管理</el-menu-item>
+                                    <el-menu-item index="6-6" @click="dolink_diagnosticdirectorymanagement">诊断目录管理</el-menu-item>
+                                    <el-menu-item index="6-7" @click="dolink_non_drugchargeprojectmanagement">非药品收费项目管理</el-menu-item>
+                                    <el-menu-item index="6-8" @click="dolink_doctorschedulingmanagement">医生排班管理</el-menu-item>
                                 </el-menu-item-group>
                             </el-submenu>
                         </el-menu>
@@ -148,7 +148,7 @@
                 console.log(key, keyPath);
             },
             dolink: function () {
-                this.$router.push('/about')
+                this.$router.push('/register')
             },
             dolink2: function () {
                 this.$router.push('/withdraw_number')
@@ -169,11 +169,58 @@
                 this.$router.push('/patient_fee_inquiry')
             },
             dolink8: function () {
-                this.$router.push('/about')
+                this.$router.push('/checkday')
             },
             dolink9: function () {
-                this.$router.push('/patient_examination')
-            }
+                this.$router.push('/checkdayquery')
+            },
+            dolink_dispensing:function () {
+                this.$router.push('/dispensing')
+            },
+            dolink_returnmedicine:function () {
+                this.$router.push('/returnmedicine')
+            },
+            dolink_drugadministration:function () {
+                this.$router.push('/drugadministration')
+            },
+            dolink_finance_ows: function () {
+                this.$router.push('/ows')
+            },
+            dolink_finance_bdws: function () {
+                this.$router.push('/bdws')
+            },
+            dolink_finance_edws: function () {
+                this.$router.push('/edws')
+            },
+            dolink_finance_cam: function () {
+                this.$router.push('/cam')
+            },
+            dolink_constantcategorymanagement: function () {
+                this.$router.push('/constantcategorymanagement')
+            },
+            dolink_officemanagement: function () {
+                this.$router.push('/officemanagement')
+            },
+            dolink_usermanagement: function () {
+                this.$router.push('/usermanagement')
+            },
+            dolink_registrationlevelmanagement: function () {
+                this.$router.push('/registrationlevelmanagement')
+            },
+            dolink_settlementcategorymanagement: function () {
+                this.$router.push('/settlementcategorymanagement')
+            },
+            dolink_diagnosticdirectorymanagement: function () {
+                this.$router.push('/diagnosticdirectorymanagement')
+            },
+            dolink_non_drugchargeprojectmanagement: function () {
+                this.$router.push('/non_drugchargeprojectmanagement')
+            },
+            dolink_doctorschedulingmanagement: function () {
+                this.$router.push('/doctorschedulingmanagement')
+            },
+
+
         }
 
     }

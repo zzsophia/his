@@ -4,43 +4,49 @@
             <div class="el-col el-col-6" data-v-49055fb4="">
                 <div class="grid-content bg-purple" data-v-49055fb4="">
                     <div class="el-input el-input--mini" data-v-49055fb4="">
-                        <el-input  type="text" v-model="input" placeholder="请输入药品助记码" autocomplete="off"></el-input>
-                </div>
-                </div>
-            </div>
-            <div class="el-col el-col-6" data-v-49055fb4="">
-                <div class="grid-content bg-purple" data-v-49055fb4="">
-                        <el-button class="el-button el-button--primary el-button--mini"
-                                   style="margin-left: 10px;" data-v-49055fb4="" type="primary" icon="el-icon-view">查询药品</el-button>
+                        <el-input  type="text" v-model="input" placeholder="请输入科室编码或名称" autocomplete="off"></el-input>
+                    </div>
                 </div>
             </div>
             <div class="el-col el-col-6" data-v-49055fb4="">
                 <div class="grid-content bg-purple" data-v-49055fb4="">
                     <el-button class="el-button el-button--primary el-button--mini"
-                            style="margin-left: 10px;" type="button" data-v-49055fb4="" @click="dialogFormVisible = true">
-                        <i class="el-icon-edit"></i><span>新增药品</span></el-button>
+                               style="margin-left: 10px;" data-v-49055fb4="" type="primary" icon="el-icon-view">查询科室</el-button>
+                </div>
+            </div>
+            <div class="el-col el-col-6" data-v-49055fb4="">
+                <div class="grid-content bg-purple" data-v-49055fb4="">
+                    <el-button class="el-button el-button--primary el-button--mini"
+                               style="margin-left: 10px;" type="button" data-v-49055fb4="" @click="dialogFormVisible = true">
+                        <i class="el-icon-edit"></i><span>新增科室</span></el-button>
 
-                    <el-dialog title="新增药品" :visible.sync="dialogFormVisible">
+                    <el-dialog title="新增科室" :visible.sync="dialogFormVisible">
                         <el-form :model="form">
                             <el-form-item>
-                                药品编号<el-input v-model="form.code" autocomplete="off" placeholder="药品编码--14位" style="width: 150px"></el-input>
-                                药品名称<el-input v-model="form.name" autocomplete="off" placeholder="药品名称" style="width: 150px"></el-input>
+                                科室编号：<el-input v-model="form.code" autocomplete="off" placeholder="科室编码" style="width: 150px"></el-input>
+                                科室名称：<el-input v-model="form.name" autocomplete="off" placeholder="科室名称" style="width: 150px"></el-input>
                             </el-form-item>
                             <el-form-item>
-                                药品助记码<el-input v-model="form.mnemoniccode" autocomplete="off" placeholder="药品助记码" style="width: 150px"></el-input>
-                                药品规格<el-input v-model="form.specification" autocomplete="off" placeholder="药品规格" style="width: 150px"></el-input>
-                            </el-form-item>
-                            <el-form-item>
-                                药品单位<el-input v-model="form.unit" autocomplete="off" placeholder="药品单位" style="width: 150px"></el-input>
-                                药品单价<el-input v-model="form.unitprice" autocomplete="off" placeholder="药品单价--两位小数" style="width: 180px"></el-input>
-                            </el-form-item>
-                            <el-form-item>
-                                药品剂型<el-input v-model="form.form" autocomplete="off" placeholder="输入剂型代码" style="width: 150px"></el-input>
-                                药品类型<el-select v-model="form.region" placeholder="药品类型" style="width: 150px">
-                                <el-option label="西药" value="shanghai"></el-option>
-                                <el-option label="中成药" value=""></el-option>
-                                <el-option label="中草药" value=""></el-option>
+                                科室分类：<div class="el-select el-select--mini" style="width: 110px;">
+                                <el-select style="width:100px;" v-model="value" readonly="readonly" placeholder="科室分类" autocomplete="off">
+                                    <el-option
+                                            v-for="item in options1"
+                                            :key="item.value"
+                                            :label="item.label"
+                                            :value="item.value">
+                                    </el-option>
                                 </el-select>
+                                </div>
+                                科室类别：<div class="el-select el-select--mini" style="width: 110px;">
+                                <el-select style="width:100px;" v-model="value" readonly="readonly" placeholder="科室类别" autocomplete="off">
+                                    <el-option
+                                            v-for="item in options2"
+                                            :key="item.value"
+                                            :label="item.label"
+                                            :value="item.value">
+                                    </el-option>
+                                </el-select>
+                            </div>
                             </el-form-item>
                         </el-form>
                         <div slot="footer" class="dialog-footer">
@@ -48,30 +54,6 @@
                             <el-button type="primary" @click="dialogFormVisible = false">保存</el-button>
                         </div>
                     </el-dialog>
-                </div>
-            </div>
-            <div align="right" class="el-col el-col-6" data-v-49055fb4="">
-                <div class="grid-content bg-purple" data-v-49055fb4="">
-                    <div class="upload-demo" data-v-49055fb4="">
-                        <div tabindex="0" class="el-upload el-upload--text">
-                            <el-upload
-                                class="upload-demo"
-                                action="https://127.0.0.1:5000/upload"
-                                :on-preview="handlePreview"
-                                :on-remove="handleRemove"
-                                :before-remove="beforeRemove"
-                                multiple
-                                :limit="3"
-                                :on-exceed="handleExceed"
-                                :file-list="fileList">
-                                <el-button class="el-button el-button--primary el-button--mini"
-                                        type="primary" data-v-49055fb4=""><!----><i
-                                        class="el-icon-sold-out"></i><span>导入药品</span>
-                                </el-button>
-                            </el-upload>
-                            <input name="file" class="el-upload__input" type="file">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -117,9 +99,9 @@
         <div class="el-row" data-v-49055fb4="">
             <div align="left" class="el-col el-col-8" data-v-49055fb4="">
                 <el-button disabled="disabled"
-                        class="el-button el-button--danger el-button--mini is-disabled"
-                        style="width: 100px; margin-top: 10px;" type="button"
-                        data-v-49055fb4="">
+                           class="el-button el-button--danger el-button--mini is-disabled"
+                           style="width: 100px; margin-top: 10px;" type="button"
+                           data-v-49055fb4="">
                     <span @click="toggledelete()">批量删除</span>
                 </el-button>
             </div>
@@ -128,7 +110,7 @@
                     <el-pagination
                             background
                             layout="prev, pager, next"
-                            :total="1000">
+                            :total="100">
                     </el-pagination>
                 </div>
             </div>
@@ -138,7 +120,7 @@
 
 <script>
     export default {
-        name: "DrugAdministration",
+        name: "OfficeManagement",
         data() {
             return {
                 dialogFormVisible: false,
@@ -158,6 +140,38 @@
                     resource: '',
                     desc: '',
                 },
+                options1: [{
+                    value: '选项1',
+                    label: 'f'
+                }, {
+                    value: '选项2',
+                    label: 'ff'
+                }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                }, {
+                    value: '选项4',
+                    label: '龙须面'
+                }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }],
+                options2: [{
+                    value: '选项1',
+                    label: 'f'
+                }, {
+                    value: '选项2',
+                    label: 'ff'
+                }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                }, {
+                    value: '选项4',
+                    label: '龙须面'
+                }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }],
                 tableData: [{
                     date: '2016-05-03',
                     name: '王小虎',
@@ -191,18 +205,6 @@
             };
         },
         methods: {
-            handleRemove(file, fileList) {
-                console.log(file, fileList);
-            },
-            handlePreview(file) {
-                console.log(file);
-            },
-            handleExceed(files, fileList) {
-                this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
-            },
-            beforeRemove(file, fileList) {
-                return this.$confirm(`确定移除 ${ file.name }？`);
-            },
             handleEdit(index, row) {
                 console.log(index, row);
             },
