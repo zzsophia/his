@@ -11,7 +11,7 @@
                 <el-main>
                     <el-tabs type="border-card">
                         <el-tab-pane label="用户管理">
-                            <el-tag>患者:</el-tag>
+                            <el-tag id="huanz">患者:</el-tag>
                             <el-table
                                     :data="tableData"
                                     style="width: 100%"
@@ -176,6 +176,28 @@
         font-size: large;
         text-align: center;
         background-color: white;
+    }
+    /deep/.el-table td{
+         padding: 0;
+        width: 30%;
+    }
+    /deep/.el-tabs--border-card > .el-tabs__content {
+         padding: 0;
+        /*height: 100px;*/
+    }
+    .el-main{
+        text-align: left;
+    }
+    /deep/.el-table--scrollable-x .el-table__body-wrapper{
+        overflow-x: inherit;
+        width: 316px;
+        height: 178px;
+        padding: 15px;
+    }
+    /deep/.el-table .cell{
+        line-height: 15px;
+         padding-left: 0;
+         padding-right: 0;
     }
 
 
